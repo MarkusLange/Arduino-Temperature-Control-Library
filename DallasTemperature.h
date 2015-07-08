@@ -22,7 +22,7 @@
 #include <OneWire.h>
 
 // Model IDs
-#define DS18S20MODEL 0x10
+#define DS18S20MODEL 0x10  // also DS1820
 #define DS18B20MODEL 0x28
 #define DS1822MODEL  0x22
 #define DS1825MODEL  0x3B
@@ -56,7 +56,7 @@
 // Error Codes
 #define DEVICE_DISCONNECTED_C -127
 #define DEVICE_DISCONNECTED_F -196.6
-#define DEVICE_DISCONNECTED_RAW -2032
+#define DEVICE_DISCONNECTED_RAW -7040
 
 typedef uint8_t DeviceAddress[8];
 
@@ -64,16 +64,16 @@ class DallasTemperature
 {
   public:
 
+  DallasTemperature();
   DallasTemperature(OneWire*);
+
+  void setOneWire(OneWire*);
 
   // initialise bus
   void begin(void);
 
   // returns the number of devices found on the bus
   uint8_t getDeviceCount(void);
-  
-  // Is a conversion complete on the wire?
-  bool isConversionComplete(void);
   
   // returns true if address is valid
   bool validAddress(const uint8_t*);

@@ -1,6 +1,14 @@
 Arduino Library for Dallas Temperature ICs
 ==========================================
 
+=========MODIFICATIONS BY PRASHANT========
+An extra no arguments constructor to simplify multiple OneWire buse use, 
+allowing for easier construction of arrays of OneWire buses,
+in the limited environment provided by Arduino.
+See the Multibus_simple example illustrating a use-case of the extension.
+Use in conjunction with my modification of the OneWire library.
+=========END MODIFICATIONS BY PRASHANT========
+
 Usage
 -----
 
@@ -10,6 +18,7 @@ This library supports the following devices :
 * DS18B20
 * DS18S20 - Please note there appears to be an issue with this series.
 * DS1822
+* DS1820
 
 
 You will need a pull-up resistor of about 5 KOhm between the 1-Wire data line
